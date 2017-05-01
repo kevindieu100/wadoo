@@ -74,8 +74,9 @@
                       <div class="col s12"><p class="experience_info text-darken-4 orange-text"><i class="tiny material-icons">phone</i>&nbsp;{{ $experience->phone }}</p></div>
                       <div class="col s12 m6 l6"><span class="experience_info text-darken-4 orange-text"><i class="tiny material-icons">stars</i>&nbsp;{{ $experience->rating }} stars</span></div>
                       <div class="col s12 m6 l6"><span class="experience_info text-darken-4 orange-text"><i class="tiny material-icons">comment</i>&nbsp;{{ $experience->review_count}} reviews on Yelp</span></div>
-                      <div class="col s12 m6 l6"><a href="{{ $experience->yelp_url }}" class="orange-text lighten-2 experience_info"><i class="material-icons">&nbsp;language</i>Check out on Yelp</a></div>
-                      <div class="col s12 m6 l6"><a href="/experiences/{{ $experience->yelp_id }}" class="orange-text lighten-2 experience_info"><i class="material-icons">&nbsp;launch</i>Learn More</a></div>
+                      <div class="col s12 m6 l6"><a href="{{ $experience->yelp_url }}" class="orange-text lighten-2 experience_info" target="_blank"><i class="material-icons">&nbsp;language</i>Check out on Yelp</a></div>
+                      <div class="col s12 m6 l6"><a href="#" class="orange-text lighten-2 experience_info"><i class="material-icons">&nbsp;launch</i>Learn More</a></div>
+                      <!-- /experiences/{{ $experience->yelp_id }} for learn more, but doesn't work for now-->
                   </div>
                 </div>
             </div>
