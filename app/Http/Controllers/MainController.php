@@ -163,8 +163,6 @@ class MainController extends Controller
       try{
         //retrieves results
         $yelp_results = $yelp_client->search(array(
-          'latitude' => $request->input('latitude'),
-          'longitude' =>$request->input('longitude'),
           'location' => $request->input('location'),
           'price' => "1,2,3",
           'limit' => 25,

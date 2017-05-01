@@ -194,8 +194,6 @@ function postPreferences(){
   data.push(
     {name: 'seconds',      value: seconds},
     {name: 'budget',   value: budget},
-    {name: 'latitude', value: currentLatLng.lat},
-    {name: 'longitude', value: currentLatLng.lng},
     {name: 'location', value: location}
   );
   dataCopy = data;
