@@ -12,6 +12,8 @@ $(".button-collapse").sideNav();
 
 //sets the location
 function setLocation(position){
+  console.log("in set location");
+  console.log(position);
   currentPosition = position;
   currentLatLng = {
     lat: position.coords.latitude,
@@ -71,27 +73,18 @@ function setLocation(position){
 
 //function to get the user's current location
 function getLocation() {
-    if (navigator.geolocation) {
-        currentPosition = navigator.geolocation.getCurrentPosition(setLocation, function(err){
-          console.log(err);
-          $.getJSON("http://ipinfo.io", function(ipinfo){
-              console.log("Found location ["+ipinfo.loc+"] by ipinfo.io");
-              latLong = ipinfo.loc.split(",");
-              var newPosition = {
-                position: {
-                  coords: {
-                    latitude: parseFloat(latLong[0]),
-                    longitude: parseFloat(latLong[1])
-                  }
-                }
-              };
-              console.log(newPosition);
-              setLocation(newPosition);
-          });
-        });
-    } else {
-        alert("Geolocation is not supported by this browser!");
-    }
+  $.getJSON("http://ipinfo.io", function(ipinfo){
+      console.log("Found location ["+ipinfo.loc+"] by ipinfo.io");
+      latLong = ipinfo.loc.split(",");
+      var newPosition = {
+          coords: {
+            latitude: parseFloat(latLong[0]),
+            longitude: parseFloat(latLong[1])
+          }
+      };
+      console.log(newPosition);
+      setLocation(newPosition);
+  });
 }//end of getLocation\
 
 //function that initiates the budget slider
@@ -146,6 +139,17 @@ $(document).ready(function(){
   var myPlacesPicker = new google.maps.places.Autocomplete(document.getElementById('pickupLocation'));
   google.maps.event.addListener(myPlacesPicker, 'place_changed', function(){
     var place = myPlacesPicker.getPlace();
+    if(!place.geometry){
+      return;
+    }
+    if(place.geometry.viewport){
+      map.fitBounds(place.geometry.viewport);
+      map.setCenter(place.geometry.location);
+      marker.setPosition(place.geometry.location);
+    }else{
+      map.setCenter(place.geometry.location);
+      marker.setPosition(place.geometry.location);
+    }
   });
   $('ul.tabs').tabs();
   initiateSlider();
@@ -302,6 +306,14 @@ $('#mainForm').submit(function(e){
   postPreferences();
   return false;
 });//end of processForm
+
+$('#mainForm').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) {
+    e.preventDefault();
+    return false;
+  }
+});
 
 //grabs and displays the itinerary
 function getDisplayItinerary(id){
