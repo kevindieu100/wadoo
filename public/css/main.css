@@ -1,0 +1,171 @@
+body{
+  position: relative;
+}
+#locationCard{
+  height: auto;
+  overflow:auto;
+}
+#durationCard{
+  height: auto;
+  overflow:auto;
+}
+#budgetCard{
+  height: auto;
+  overflow: auto;
+}
+#map{
+  min-height: 35vh;
+}
+#locationCardContent{
+  height: auto;
+}
+.navbar-fixed{
+  height: 10vh;
+}
+input[type=range]::-webkit-slider-thumb {
+  background-color: rgb(255, 147, 38);
+}
+input[type=range]::-moz-range-thumb {
+  background-color:rgb(255, 147, 38);
+}
+input[type=range]::-ms-thumb {
+  background-color: rgb(255, 147, 38);
+}
+
+/***** These are to edit the thumb and the text inside the thumb *****/
+input[type=range] + .thumb {
+  background-color: rgb(255, 147, 38);
+}
+input[type=range] + .thumb.active .value {
+  color:rgb(255, 147, 38);
+}
+.noUI-connect {
+  background: rgb(255, 147, 38);
+}
+.noUi-tooltip{
+  background-color: rgb(255, 147, 38) !important !important;
+}
+/*FOR TIMEPICKER*/
+.materialPicker{
+  width: 10rem;
+}
+
+.Number{
+  border: none;
+  text-align: center;
+  font-size: 3rem;
+  width:100%;
+}
+
+.pickerButton{
+    width:75%;
+}
+
+.first{
+  float:left;
+}
+.second{
+  float:right;
+}
+.experience_card{
+  height: auto;
+  position:relative;
+}
+.price_container{
+  position:absolute;
+  z-index: 100;
+  top: 100;
+  display:table;
+  vertical-align:middle;
+  text-align:center;
+}
+.image_container{
+  height: 40vh;
+  background-size: cover; /* or contain depending on what you want */
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align:center;
+  margin:auto;
+  padding:0;
+}
+h4{
+  font-size: 5vw;
+}
+.experience_info{
+  font-size: 1.5vh;
+}
+.centerd {
+  display: block;
+  position:relative;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    #map{
+      min-height: 50vh;
+    }
+    #locationCardContent{
+      height: auto;
+    }
+    h4{
+      font-size: 5vh;
+    }
+    .experience_info{
+      font-size: 2vh;
+    }
+    .image_container{
+      height: 42vh;
+      background-size: cover; /* or contain depending on what you want */
+      background-position: center center;
+      background-repeat: no-repeat;
+      text-align:center;
+      margin:auto;
+      padding:0;
+    }
+}
+/* label color */
+ .input-field label {
+   color: rgb(255, 147, 38);;
+ }
+ /* label focus color */
+ .input-field input[type=text]:focus + label {
+   color: rgb(255, 147, 38);
+ }
+ /* label underline focus color */
+ .input-field input[type=text]:focus {
+   border-bottom: 1px solid rgb(255, 147, 38);
+   box-shadow: 0 1px 0 0 rgb(255, 147, 38);
+ }
+ /* valid color */
+ .input-field input[type=text].valid {
+   border-bottom: 1px solid rgb(255, 147, 38);
+   box-shadow: 0 1px 0 0 rgb(255, 147, 38);
+ }
+ /* invalid color */
+ .input-field input[type=text].invalid {
+   border-bottom: 1px solid red;
+   box-shadow: 0 1px 0 0 red;
+ }
+ /* icon prefix focus color */
+ .input-field .prefix.active {
+   color: rgb(255, 147, 38);
+ }
+
+/*STUFF BELOW HERE ARE FOR DIRECTION CARD*/
+.direction_card{
+  height: auto;
+  position:relative;
+}
+
+/*STUFF BELOW HERE ARE FOR THE LOADING CONTAINER*/
+#loadingContainer{
+  display:block;
+  top: 0;
+  height: 100%;
+  width:100%;
+  position: absolute;
+  z-index: 100000;
+  background:rgba(255, 255, 255, 0.75) url('.././img/loading.gif') no-repeat fixed center;
+}
