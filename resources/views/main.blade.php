@@ -48,7 +48,7 @@
       <div class="nav-content">
         <ul class="tabs tabs-transparent tabs-fixed-width">
 					<li class="tab"><a href="#profileContainer"><i class="large material-icons">perm_identity</i></a></li>
-          <li class="tab"><a href="#optionsContainer"><i class="large material-icons">settings</i></a></li>
+          <li class="tab"><a id="optionsNav" href="#optionsContainer"><i class="large material-icons">settings</i></a></li>
           <li class="tab"><a href="#itineraryContainer"><i class="large material-icons">list</i></a></li>
 	        <li class="tab disabled"><a href="#test4"><i class="large material-icons">language</i></a></li>
         </ul>

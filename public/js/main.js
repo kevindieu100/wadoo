@@ -135,6 +135,9 @@ function initiateSlider(){
 $(document).ready(function(){
   $('#loadingContainer').show();
   getLocation();
+  $('ul.tabs').tabs();
+  initiateSlider();
+  $('.modal').modal();
   geocoder = new google.maps.Geocoder();
   var myPlacesPicker = new google.maps.places.Autocomplete(document.getElementById('pickupLocation'));
   google.maps.event.addListener(myPlacesPicker, 'place_changed', function(){
@@ -151,9 +154,6 @@ $(document).ready(function(){
       marker.setPosition(place.geometry.location);
     }
   });
-  $('ul.tabs').tabs();
-  initiateSlider();
-  $('.modal').modal();
   $('#loadingContainer').hide();
 });//end of window load
 
@@ -379,4 +379,8 @@ $('.preview_button').click(function(event){
 
 $('.update_button').click(function(event){
   updateItinerary(event.target.id);
+});
+
+$('#optionsNav').click(function(event){
+  getLocation();
 });
