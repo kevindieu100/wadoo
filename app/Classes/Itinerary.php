@@ -18,7 +18,8 @@ class Itinerary {
 
   public function __construct($experiences, $budgetPreference, $durationPreference, $totalBudget, $totalDuration)
   {
-    $this->title = "Your Itinerary";
+    date_default_timezone_set('America/Los_Angeles');
+    $this->title = "Itinerary: " . date("Y-m-d @ h:i");
     $this->experiences = $experiences;
     $this->budgetPreference = $budgetPreference;
     $this->displayBudgetPreference = '$' . $budgetPreference;

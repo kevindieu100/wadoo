@@ -289,7 +289,6 @@ function saveItinerary(){
       $('#loadingContainer').hide();
     }else if(data.success){
       console.log(data);
-      alert(data.success);
       $('#loadingContainer').hide();
     }
   })
@@ -383,4 +382,8 @@ $('.update_button').click(function(event){
 
 $('#optionsNav').click(function(event){
   getLocation();
+});
+
+$('#profileNav').click(function(event){
+  location.reload();
 });
