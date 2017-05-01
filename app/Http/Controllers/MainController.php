@@ -70,10 +70,9 @@ class MainController extends Controller
     }
 
     //called and preprocesses the business and sorts by price and duration
-    private function preprocessData($yelp_results, $startLocation){
+    private function preprocessData($businesses, $startLocation){
       $experiences = array();
-      for($i = 0; $i < 25; $i++){
-        $business = $yelp_results->getBusiness($i);
+      foreach($businesses as $business){
         $address = "";
         $address_array = $business->getLocation()->getDisplayAddress();
         foreach($address_array as $value){
@@ -182,7 +181,7 @@ class MainController extends Controller
       $durationPreference = $totalDuration;
       $addresses = array();
       $experiencesJson = array();
-      $processedData = $this->preprocessData($yelp_results, $startingAddress);
+      $processedData = $this->preprocessData($businesses, $startingAddress);
       $experiences = $this->fitBudgetDuration($processedData, $totalBudget, $totalDuration, $startingAddress, $addresses);
       $preview = FALSE;
       //creates the itinerary object
