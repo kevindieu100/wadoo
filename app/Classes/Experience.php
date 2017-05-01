@@ -47,7 +47,8 @@ class Experience {
        $this->address = $address;
        $this->business_name = $business_name;
        $this->duration = random_int(600, 3600);
-
+       $minutes =(int)($this->duration/60);
+       $this->displayDuration = $minutes . " min";
    }//end of constructor
 
    public function setTransportationModes($fromPrev, $toStart)
@@ -142,6 +143,8 @@ class Experience {
    public function setDuration($seconds)
    {
      $this->duration = $seconds;
+     $minutes =(int)($this->duration/60);
+     $this->displayDuration = $minutes . " min";
    }//end of setDuration
 
    public function getDisplayDuration()
